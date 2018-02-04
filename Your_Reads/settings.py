@@ -55,7 +55,7 @@ ROOT_URLCONF = 'Your_Reads.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['books/template','*'],
+        'DIRS': ['books/template','template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
