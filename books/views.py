@@ -13,5 +13,5 @@ def index(request):
     # return HttpResponse(book)
     # return JsonResponse({'name': 'Ahmed'})
     # return HttpResponseRedirect("bo")
-    return render(request,'master.html',{'name':'ahmed'})
+    return render(request,'index.html',{'name':'ahmed'})
     # return redirect('/admin',{'name':'ahmed'})
