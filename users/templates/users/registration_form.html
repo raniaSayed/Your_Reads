@@ -72,13 +72,13 @@
                  <div class="row">
                     <div class="col-md-12">
 
-                       <form class="form" role="form" value="login" method="post" accept-charset="UTF-8" id="login-nav">
+                       <form class="form" role="form"  method="post" accept-charset="UTF-8" id="login-nav">
                           <div class="form-group">
                             {% csrf_token %}
                           {{ loginForm.as_table}}</div>
 
                           <div class="form-group">
-                             <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+                             <button value="login" name='submit' type='submit' class="btn btn-primary btn-block">Sign in</button>
                           </div>
 
                        </form>
@@ -104,13 +104,13 @@
                                 or
 
 
-								 <form class="form" role="form" value="register" method="post" accept-charset="UTF-8" id="login-nav">
+								 <form class="form" role="form"  method="post" accept-charset="UTF-8" id="login-nav">
 										<div class="form-group">
                       {% csrf_token %}
                     {{ registerform.as_table}}</div>
 
 										<div class="form-group">
-											 <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+											 <button value="register" name='submit' type='submit' class="btn btn-primary btn-block">Sign up</button>
 										</div>
 
 								 </form>
