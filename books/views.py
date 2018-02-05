@@ -9,9 +9,14 @@ from books.models import Book
 
 # Create your views here.
 def index(request):
-    book = Book.objects.all()
+    books = Book.objects.all()
     # return HttpResponse(book)
     # return JsonResponse({'name': 'Ahmed'})
     # return HttpResponseRedirect("bo")
-    return render(request,'index.html',{'name':'ahmed'})
+    return render(request,'index.html',{'books':books})
     # return redirect('/admin',{'name':'ahmed'})
+
+def view(request,id=0):
+    #make a middleware for this function to prevent unexistant ids
+    # return Book.objects.all().get(id)
+    return HttpResponse(id)

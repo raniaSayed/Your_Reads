@@ -48,6 +48,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # 'books.middleware.viewMiddleWare.ViewMiddleware',
 ]
 
 ROOT_URLCONF = 'Your_Reads.urls'
@@ -78,8 +79,8 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': "dj_reads",
-        'USER': 'rania',
-        'PASSWORD': 'rania2017',
+        'USER': 'GRadmin',
+        'PASSWORD': '12345',
         'HOST': 'localhost',
     }
 }
