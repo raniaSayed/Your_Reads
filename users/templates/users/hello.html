@@ -1,7 +1,11 @@
 {% extends 'users/base.html'%}
-{% block body %}
-.,,,,,,,,.
+{% block userName %}
+{% if user.is_authenticated %}
+    <strong color="white">Welcome {{ user.username }} !!!</strong>
+{% endif %}
+{% endblock %}
 
-kk'k;;;;;;;;;;;;;;;;'
-jjjjjjjjjjjjjjjjjI love you 
+{% block body %}
+<div class="divv"><ijjjjjjjjj</div>
+ love you
 {% endblock %}

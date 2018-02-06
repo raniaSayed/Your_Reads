@@ -1,4 +1,3 @@
-
 from django.shortcuts import render,redirect
 from django.contrib.auth import authenticate, login, logout
 from django.views.generic import View
@@ -9,13 +8,6 @@ from django.http import Http404
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_http_methods
 from django.http import HttpResponse
-
-# def CheckLogin():
-#     if request.user.is_authenticated():
-#         return redirect('bar')
-#     else:
-#         return redirect('bar')
-
 
 class userLogout(View):
     #@login_required
@@ -76,20 +68,16 @@ class UserFormView(View):
                     login(request,user)
                     return redirect('logout')
 
-                else:
-                    raise forms.ValidationError(u'Username "%s" is already in use.' % username)
-                    return render(request,self.template_name,{'registerform':form,'loginForm':self.loginForm})
+            return render(request,self.template_name,{'registerform':form,'loginForm':self.loginForm,'userExistError':" Username is already in use"})
 
         elif request.POST.get('submit') == 'login':
+            formlogin=self.login_form(request.POST)
             user = self.login_view(request)
             if user:
                 login(request,user)
                 return redirect('logout')
-            # else:
-            #     raise self.loginForm.ValidationError('Eroor')
-        return render(request,self.template_name,{'registerform':self.registerForm,'loginForm':self.loginForm})
-
-
+            else:
+                return render(request,self.template_name,{'registerform':self.registerForm,'loginForm':formlogin,'error':" invalid user name or password "})
 
 def hell(request):
     template_name='users/base.html'

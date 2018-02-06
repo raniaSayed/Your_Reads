@@ -1,8 +1,25 @@
 body{
     background:url('imges/BG.jpg');
 }
+.divv{
+  background:url('imges/bg3.jpg');
+  margin-left: 20px;
+  margin-right: 20px;
+  margin-bottom: 0px;
+  height:490px;
+}
+strong {
+    color: white;
+}
+.error{
+  text-decoration-color: red;
+  color: red;
+}
+
+
 .navbar{
   border-radius: 0;
+  margin-bottom:5px;
 }
 .navbar-brand{
   font-family: 'Satisfy',cursive;
