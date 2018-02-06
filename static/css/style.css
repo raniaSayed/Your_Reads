@@ -12,6 +12,6 @@ body>div.container{
 .checked {
      color: orange;
  }
-.fa-star:hover{
+.fa:hover{
   cursor: pointer;
 }
