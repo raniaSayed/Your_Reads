@@ -21,7 +21,7 @@ from django.conf.urls import url
 
 urlpatterns = [
     # path('author/',include('authors.urls')),
-    path('', include('users.urls')),
+    # path('', include('users.urls')),
     path('book/',include('books.urls')),
     path('admin/', admin.site.urls),
 ]

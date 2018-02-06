@@ -1,6 +1,6 @@
 {% extends "master.html" %}
 
-
+{{req.dept }}
     {% block title %}Shop Homepage - Start Bootstrap Template{% endblock %}
 
 
@@ -21,23 +21,33 @@
             {% for book in books %}
             <div class="col-lg-4 col-md-6 mb-4">
               <div class="card h-100">
-                <a href="#"><img class="card-img-top" src="http://placehold.it/700x400" alt=""></a>
+                {% if book.image %}
+                  <a href="#"><img class="card-img-top" src="{{'/book'|add:book.image.url}}" alt=""></a>
+                  {% else %}
+                  <a href="#"><img class="card-img-top" src="#" alt=""></a>
+
+                {% endif %}
                 <div class="card-body">
                   <h4 class="card-title">
-                    <a href="#">{{ book.title }}</a>
+                    <a href="{{book.id}}">{{ book.title }}</a>
                   </h4>
-                  <h5>$24.99</h5>
-                  <p class="card-text">{{book.summary}}</p>
+                  <h5>published: {{ book.published_at }}</h5>
+                  <p class="card-text">{{ book.summary|slice:":50" |add:'...'}}</p>
                 </div>
                 <div class="card-footer">
-                  <small class="text-muted">&#9733; &#9733; &#9733; &#9733; &#9734;</small>
+
+
+                  {% for i in "x"|ljust:book.rate %}
+                    <small class="fa fa-star checked"></small>
+                  {% endfor %}
+
                 </div>
               </div>
             </div>
             {% empty %}
-              <div class="col-lg-4 col-md-6 mb-4">
-                  <h2>No Books in Library</h2>
-              </div>
+              <!-- <div class="col-lg-4 col-md-6 mb-4"> -->
+                  <h2 class="content">No Books in Library</h2>
+              <!-- </div> -->
             {% endfor %}
 
             <!-- <div class="col-lg-4 col-md-6 mb-4">

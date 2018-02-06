@@ -8,6 +8,15 @@ class Book(models.Model):
     link = models.URLField()
     country = models.CharField(max_length= 100)
     published_at = models.DateField()
+    image = models.FileField(null=True,blank=True)
+    Choices = (
+        (1,  'So Bad'),
+        (2,  'Bad'),
+        (3,  'Normal'),
+        (4,  'High'),
+        (5,  'So High'),
+      )
+    rate = models.IntegerField(default=3, choices=Choices)
 
     def __str__(self):
         return self.title
