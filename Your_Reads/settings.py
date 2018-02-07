@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authors.apps.AuthorsConfig',
     'books.apps.BooksConfig',
-    # 'users.apps.UsersConfig',
+    'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,7 @@ ROOT_URLCONF = 'Your_Reads.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['books/template','template'],
+        'DIRS': ['template','books/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
