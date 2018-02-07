@@ -7,7 +7,9 @@ try:
 except ImportError:
     MiddlewareMixin = object
 class ViewMiddleware(MiddlewareMixin):
-    def process_request(self,request):
-        request.dept = "OS"
-        # return JsonResponse(request.body)
-        return None
+    # def process_request(self,request):
+    #     request.dept = "OS"
+    #     # return JsonResponse(request.body)
+    #     # return None
+    #     # return HttpResponse(request._request_time)
+    #     return HttpResponse("middleware")

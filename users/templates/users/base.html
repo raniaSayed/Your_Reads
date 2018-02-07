@@ -84,5 +84,39 @@
 
   {% block body %}
   {% endblock %}
-</body>
-</html>
+  <!-- Page Content -->
+     <div class="container">
+       <div class="row">
+         <div class="col-lg-3">
+         {%block sidebar %}
+           Sidebar Content
+         {% endblock %}
+       </div>
+         <!-- /.col-lg-3 -->
+
+         <div class="col-lg-9">
+           {% block main_content %}
+             Main Content
+           {% endblock %}
+         </div>
+         <!-- /.col-lg-9 -->
+
+       </div>
+       <!-- /.row -->
+     </div>
+     <!-- /.container -->
+
+     <!-- Footer -->
+     <footer class="py-5 bg-dark">
+       <div class="container">
+         <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+       </div>
+       <!-- /.container -->
+     </footer>
+
+     <!-- Bootstrap core JavaScript -->
+     <script src="{% static 'js/jquery.min.js' %}"></script>
+     <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+     <script src="{% static 'js/script.js' %}"></script>
+
+   </body></html>
