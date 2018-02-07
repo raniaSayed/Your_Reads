@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'authors.apps.AuthorsConfig',
     'books.apps.BooksConfig',
-
+    # 'users.apps.UsersConfig',
 ]
 
 MIDDLEWARE = [
@@ -50,6 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'books.middleware.viewMiddleware.ViewMiddleware',
 ]
 
 ROOT_URLCONF = 'Your_Reads.urls'
@@ -71,6 +72,7 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Your_Reads.wsgi.application'
+
 
 
 # Database
@@ -126,5 +128,11 @@ USE_TZ = True
 STATIC_URL = '/static/'
 # Add these new lines
 STATICFILES_DIRS = (
-    os.path.join(BASE_DIR, 'users','static'),
+    os.path.join(BASE_DIR,'static'),
 )
+
+MEDIA_URL = '/media/'#this line is added and it creates a directory named media in your appfolder
+#where the uploaded images will be stored
+
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')#this line is added and it serves as the root address of
+#uploaded file
