@@ -20,12 +20,9 @@ from django.urls import path,include
 from django.conf.urls import url
 
 urlpatterns = [
-<<<<<<< HEAD
     # path('author/',include('authors.urls')),
     path('', include('users.urls')),
-=======
     path('author/',include('authors.urls')),
->>>>>>> 4a88c5f00d77a5414f5ca3baefba196a972ce282
     path('book/',include('books.urls')),
     path('admin/',admin.site.urls),
 ]
