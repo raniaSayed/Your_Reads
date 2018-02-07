@@ -20,3 +20,6 @@ def view(request,id):
     #make a middleware for this function to prevent unexistant ids
     return render(request,"single.html",{"book" :Book.objects.get(id=id),'category':""});
     # return HttpResponse(id)
+
+def author(request,id):
+    return HttpResponse(Book.objects.get(id=id).author)
