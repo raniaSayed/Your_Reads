@@ -6,7 +6,7 @@ from django.conf.urls import url
 urlpatterns = [
      path('',views.index,name="index"),
      re_path(r'^(?P<id>[0-9]+)/$',views.view),
-     re_path(r'^author/(?P<id>[0-9]+)/$',views.author),
+     re_path(r'^author/(?P<id>[0-9]+)/$',views.get_author_books),
 
 ]
 

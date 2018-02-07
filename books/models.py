@@ -6,7 +6,7 @@ class Category(models.Model):
 
 class Book(models.Model):
     title = models.CharField(max_length= 100)
-    # author = models.ForeignKey('authors.Authors',null=True,on_delete=models.SET_NULL)
+    author = models.ForeignKey('authors.Authors',null=True,on_delete=models.SET_NULL)
     category = models.ForeignKey(Category,null=True,on_delete=models.SET_NULL)
     summary = models.TextField()
     link = models.URLField()

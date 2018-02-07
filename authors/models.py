@@ -8,3 +8,6 @@ class Authors(models.Model):
     contacts= models.TextField(max_length=200)
     bio= models.CharField(max_length=200)
     image = models.FileField(null=True,blank=True)
+
+    def __str__(self):
+        return self.author_name
