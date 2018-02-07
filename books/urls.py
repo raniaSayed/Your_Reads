@@ -1,6 +1,8 @@
 from django.urls import path,re_path
 from . import views
 from django.conf.urls import url
+from django.conf.urls.static import static
+from django.conf import settings
 
 #parent urls add app name before url "/book" for ex
 urlpatterns = [
@@ -10,9 +12,7 @@ urlpatterns = [
 
 ]
 
-
-
 # if the DEBUG is on in settings, then append the urlpatterns as below
-# if settings.DEBUG:
-#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-#     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
