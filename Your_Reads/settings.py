@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'books.middleware.viewMiddleware.ViewMiddleware',
+    # 'books.middleware.viewMiddleware.ViewMiddleware',
     # 'Webapp.login_required_middleware.LoginRequiredMiddleware',
 ]
 

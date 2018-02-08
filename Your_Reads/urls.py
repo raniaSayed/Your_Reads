@@ -20,6 +20,7 @@ from django.urls import path,include
 from django.conf.urls import url
 
 urlpatterns = [
+
     # path('author/',include('authors.urls')),
     path('', include('users.urls')),
     path('author/',include('authors.urls')),

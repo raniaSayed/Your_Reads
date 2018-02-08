@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
   <head>
     {% load static %}
@@ -15,15 +14,25 @@
 
     <title>Shop Homepage - Start Bootstrap Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
 
-    <!-- Custom styles for this template -->
-    <link href="{% static 'css/shop-homepage.css' %}" rel="stylesheet">
+        <li class="">
+          <a href="#">
+            <span class="glyphicon glyphicon-user" aria-hidden="true"></span>&nbsp;
+            Authors</a>
+        </li>
 
-  </head>
+        <li class="">
+          <a href="#">
+            <span class="glyphicon glyphicon-book" aria-hidden="true"></span>&nbsp;
+            books</a>
+        </li>
 
-  <body>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <!-- <span class="glyphicon glyphicon-option-horizontal" aria-hidden="true"></span>&nbsp; -->
 
     {% load staticfiles %}
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -102,40 +111,66 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <!-- Page Content -->
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-3">
-        {%block sidebar %}
-          Sidebar Content
-        {% endblock %}
-      </div>
-        <!-- /.col-lg-3 -->
 
-        <div class="col-lg-9">
-          {% block main_content %}
-            Main Content
-          {% endblock %}
+      <form class="navbar-form navbar-left" role="search" method="get">
+      <strong>
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </strong>
+        <div class="form-group">
+          <input name="q" type="text" class="form-control" placeholder="Search">
         </div>
-        <!-- /.col-lg-9 -->
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>
 
-      </div>
-      <!-- /.row -->
+      <form class="navbar-form navbar-right"  method="post">
+
+        <button type="submit" class="btn btn-Basic">
+           <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+           {% csrf_token %}
+          <b>LogOut</b></button>
+        {% block userName %} {% endblock %}
+      </form>
+
+        </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+  <div class="row">
+    <div class="col-lg-3">
+    {%block sidebar %}
+      Sidebar Content
+    {% endblock %}
+  </div>
+    <!-- /.col-lg-3 -->
+
+    <div class="col-lg-9">
+      {% block main_content %}
+        Main Content
+      {% endblock %}
     </div>
-    <!-- /.container -->
+    <!-- /.col-lg-9 -->
 
-    <!-- Footer -->
-    <footer class="py-5 bg-dark">
-      <div class="container">
-        <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
-      </div>
-      <!-- /.container -->
-    </footer>
+  </div>
+  <!-- /.row -->
+</div>
+<!-- /.container -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
-    <script src="{% static 'js/script.js' %}"></script>
+<!-- Footer -->
+<footer class="py-5 bg-dark">
+  <div class="container">
+    <p class="m-0 text-center text-white">Copyright &copy; Your Website 2017</p>
+  </div>
+  <!-- /.container -->
+</footer>
 
-  </body>
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'js/jquery.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script src="{% static 'js/script.js' %}"></script>
+
+</body>
 </html>

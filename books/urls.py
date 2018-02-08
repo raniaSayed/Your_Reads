@@ -1,6 +1,8 @@
 from django.urls import path,re_path
 from . import views
 from django.conf.urls import url
+from django.conf.urls.static import static
+from django.conf import settings
 
 #parent urls add app name before url "/book" for ex
 urlpatterns = [
