@@ -24,6 +24,6 @@ urlpatterns = [
     # path('author/',include('authors.urls')),
     path('', include('users.urls')),
     path('author/',include('authors.urls')),
-    path('book/',include('books.urls')),
+    path('book/',include('books.urls'),"books"),
     path('admin/',admin.site.urls),
 ]
