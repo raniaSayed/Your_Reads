@@ -15,3 +15,6 @@ body>div.container{
 .fa:hover{
   cursor: pointer;
 }
+.col-lg-4{
+  margin: 10px 0px;
+}

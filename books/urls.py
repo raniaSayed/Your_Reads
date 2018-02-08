@@ -6,7 +6,7 @@ from django.conf import settings
 
 #parent urls add app name before url "/book" for ex
 urlpatterns = [
-     path('',views.index,name="index"),
+     path('',views.index,name="book_index"),
      re_path(r'^(?P<id>[0-9]+)/$',views.view),
      re_path(r'^author/(?P<id>[0-9]+)/$',views.get_author_books),
 
