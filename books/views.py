@@ -37,6 +37,11 @@ def view(request,id):
     'categories':categories,
     'checked' : rate,'unchecked':unchecked});
 
+def search(request,book_name):
+    books = Book.objects.filter(title__icontains= book_name)
+    return render(request,'index.html',
+    {'books':books})
+
 # return books of specific author
 def get_author_books(request,id):
     return HttpResponse(Book.objects.filter(author=id))
