@@ -9,6 +9,7 @@ urlpatterns = [
      path('',views.index,name="book_index"),
      re_path(r'^(?P<id>[0-9]+)/$',views.view),
      re_path(r'^author/(?P<id>[0-9]+)/$',views.get_author_books),
+     re_path(r'^rate/(?P<rate_value>[0-5]+)/(?P<book_id>[0-9]+)$',views.rate_book,name="rate_book"),
 
 ]
 

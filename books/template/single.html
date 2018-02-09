@@ -36,7 +36,11 @@
                 <div class="card-footer">
 
 
-                  {% for i in "x"|ljust:5  %}
+                  {% for i in "x"|ljust:checked  %}
+                    <small class="fa fa-star checked" id="{{i}}"></small>
+                  {% endfor %}
+
+                  {% for i in "x"|ljust:unchecked  %}
                     <small class="fa fa-star" id="{{i}}"></small>
                   {% endfor %}
 
@@ -46,6 +50,9 @@
             <div class="col-lg-6 col-md-6 mb-6">
                 <p>
                   {{book.summary}}
+                </p>
+                <p id="book_id" book_id="{{book.id}}" style="display:none">
+
                 </p>
             </div>
 
