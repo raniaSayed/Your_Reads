@@ -8,17 +8,18 @@ from authors.models import *
 from users.models import *
 from django.db.models import Avg
 from math import ceil
+import requests
+from django.views.decorators.csrf import csrf_exempt
+
 
 # Create your views here.
 def index(request):
     books = Book.objects.all()
     categories = Category.objects.all()
     favourite_categories =  categoryList.objects.filter(user_id= request.user.id).values_list('category_id',flat=True)
-    # favourite_categories = set(category.id for category in favourite_categories)
-
     return render(request,'index.html',
     {'books':books,'categories':categories,
-    'favourites':favourite_categories })
+    'favourites':favourite_categories})
 
 
 def view(request,id):
@@ -36,6 +37,15 @@ def view(request,id):
     {"book":book,"summary":summary,
     'categories':categories,
     'checked' : rate,'unchecked':unchecked});
+
+@csrf_exempt
+def search(request):
+    #create SearchForm Class
+
+    book_name = request.POST['search_word']
+    books = Book.objects.filter(title__icontains= book_name)
+    return render(request,'index.html',
+    {'books':books})
 
 # return books of specific author
 def get_author_books(request,id):
