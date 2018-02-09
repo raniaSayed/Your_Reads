@@ -9,7 +9,7 @@ from users.models import *
 from django.db.models import Avg
 from math import ceil
 from django.views.generic import View
-import requests
+# import requests
 from django.views.decorators.csrf import csrf_exempt
 
 
@@ -75,12 +75,18 @@ class User_action(View):
 
     def post(self,request):
         if request.POST.get('submit') == 'Read':
-            user_read=ReadNowList(user_id= request.user.id,book_id = request.session.get('book_id'))
-            user_read.save()
+            res=ReadNowList.objects.filter(user=request.user.id,book=request.session.get('book_id'))
+            if not res:
+                user_read=ReadNowList(user_id= request.user.id,book_id = request.session.get('book_id'))
+                user_read.save()
         elif request.POST.get('submit') == 'wish':
+            res=WishList.objects.filter(user=request.user.id,book=request.session.get('book_id'))
+            if not res:
                 user_read=WishList(user_id= request.user.id,book_id = request.session.get('book_id'))
                 user_read.save()
         elif request.POST.get('submit') == 'finished':
-                user_read=ReadedList(user_id= request.user.id,book_id = request.session.get('book_id'))
-                user_read.save()
+                res=ReadedList.objects.filter(user=request.user.id,book=request.session.get('book_id'))
+                if not res:
+                    user_read=ReadedList(user_id= request.user.id,book_id = request.session.get('book_id'))
+                    user_read.save()
         return redirect('books')
