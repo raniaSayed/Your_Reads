@@ -1,0 +1,44 @@
+{% extends "master.html" %}
+
+
+   <!-- Page Content -->
+   <div class="container">
+       <!-- /.col-lg-3 -->
+       {% block main_content %}
+
+             <div class="card h-100">
+               {% if author.image %}
+                 <img class="card-img-top" src="{{'/author'|add:author.image.url}}" alt="" style="width:200px;height:200px;">
+                 {% else %}
+              <img class="card-img-top" src="#" alt="">
+
+               {% endif %}
+               <div class="card-body">
+                 <h4 class="card-title">
+                   <p>{{ author.author_name }}</p>
+                 </h4>
+                 {% if author.born_at %}
+                 <p>Born at: {{ author.born_at }}</p>
+                 {% endif %}
+
+                  {% if author.died_at %}
+                 <p>Died at: {{ author.died_at }}</p>
+                 {% endif %}
+                 <p>Nationality: {{ author.author_nationality }}</p>
+                 <p>Bio: {{ author.bio }}</p>
+
+               </div>
+               <div class="card-footer">
+
+
+
+
+               </div>
+             </div>
+
+
+
+         {% endblock %}
+
+
+   </div>

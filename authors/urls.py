@@ -11,3 +11,8 @@ urlpatterns = [
     # re_path('(?P<name>[a-zA-Z]+)/',views.detail_name2),
     # url(author/(?P<pk>[0-9]+)$', views.detail)
 ]
+
+ # if the DEBUG is on in settings, then append the urlpatterns as below
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
