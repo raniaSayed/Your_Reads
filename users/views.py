@@ -13,20 +13,21 @@ class userLogout(View):
     #@login_required
     def get(self,request):
         if request.user.is_authenticated:
-            return render(request,'users/home.html')
+            #dict_cont={"user":{"alaa","selvia"},"action":{"reading","wish"},"book":{"b1","b2"}}
+            dict_cont={"posts":{"Martina reading lovestory b1","selvia WishReading thetime  b2","mariam WishReading thetime  b3","selvia Reading thetime  b6"}}
+            return render(request,'users/home.html',dict_cont)
         else:
            return redirect('register')
 
     def post(self,request):
-        if request.user.is_authenticated:
-            logout(request)
-            return redirect('register')
-
+        if request.POST.get('submit') == 'logout':
+            if request.user.is_authenticated:
+                logout(request)
+                return redirect('register')
+        else:
+            return redirect('logout')
 
 class UserFormView(View):
-    # def get(self,request):
-    #     return HttpResponse("ddkdkd")
-
     register_form=UserForm
     login_form=UserFormLogin
     registerForm=register_form(None)
@@ -35,7 +36,7 @@ class UserFormView(View):
     #need to display form
     def get(self,request):
         if not request.user.is_authenticated:
-            return render(request,self.template_name,{'registerform':self.registerForm,'loginForm':self.loginForm})
+            return render(request,self.template_name,{'registerform':self.registerForm,'loginForm':self.loginForm,'range': {"b1","b2","b3","b4","b5","b6","b7","b8"}})
         else:
             return redirect('logout')
 
