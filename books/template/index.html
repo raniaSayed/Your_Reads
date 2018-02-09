@@ -8,62 +8,32 @@
     <!-- Page Content -->
     <div class="container-fluid">
       <div class="row">
-        {%block sidebar %}
-          <h1 class="my-4">Categories</h1>
-          <div class="list-group">
-            {% for  category in  categories %}
+        {% if categories is not null %}
+          {%block sidebar %}
+            <h1 class="my-4">Categories</h1>
+            <div class="list-group">
+              {% for  category in  categories %}
 
-            <a href="#"  class="list-group-item">{{category.name}}
-              {% if category.id in favourites %}
+              <a href="#"  class="list-group-item">{{category.name}}
+                {% if category.id in favourites %}
 
-                <span cat_id="{{category.id}}" class="fa fa-heart checked"></span>
-                {% else %}
-                <span cat_id="{{category.id}}" class="fa fa-heart"></span>
-              {% endif %}
-            </a>
-            {% endfor %}
-          </div>
-         {% endblock %}
+                  <span cat_id="{{category.id}}" class="fa fa-heart checked"></span>
+                  {% else %}
+                  <span cat_id="{{category.id}}" class="fa fa-heart"></span>
+                {% endif %}
+              </a>
+              {% endfor %}
+            </div>
+           {% endblock %}
+        {% endif %}
         <!-- /.col-lg-3 -->
       {% block main_content %}
-          <!-- <div class="row">
-            {% for book in books %}
-            <div class="col-lg-4 col-md-6 mb-4">
-              <div class="card h-100">
-                {% if book.image %}
-                  <a href="#"><img class="card-img-top" src="{{'/book'|add:book.image.url}}" alt=""></a>
-                  {% else %}
-                  <a href="#"><img class="card-img-top" src="#" alt=""></a>
 
-                {% endif %}
-                <div class="card-body">
-                  <h4 class="card-title">
-                    <a href="{{book.id}}">{{ book.title }}</a>
-                  </h4>
-                  <h5>published: {{ book.published_at }}</h5>
-                  <p class="card-text">{{ book.summary|slice:":50" |add:'...'}}</p>
-                </div>
-                <div class="card-footer">
-
-
-                  {% for i in "x"|ljust:book.rate %}
-                    <small class="fa fa-star checked"></small>
-                  {% endfor %}
-
-                </div>
-              </div>
-            </div>
-            {% empty %}
-              <!-- <div class="col-lg-4 col-md-6 mb-4"> -->
-                  <h2 class="content">No Books in Library</h2>
-              <!-- </div> -->
-            {% endfor %}
-          </div>
           <div class="container-fluid">
             <div class="row">
               {% for book in books %}
           <div class="col-lg-4">
-             <a href="{{book.id}}">
+             <a href="/book/{{book.id}}">
             {% if book.image %}
               <img  src="{{'/book'|add:book.image.url}}" alt="Generic placeholder image" width="140" height="140">
 
@@ -93,11 +63,54 @@
       </div>
           <!-- /.row -->
 
-        {% endblock %}
         <!-- main_content -->
 
-      </div>
+      <!-- </div> -->
       <!-- /.row -->
+
+
+
+      <!--=========================================================================-->
+      <!-- Page Content -->
+      <div class="container">
+        <div class="row">
+          <!-- /.col-lg-3 -->
+            <div class="row">
+              {% for author in authors %}
+              <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100">
+                  {% if author.image %}
+                    <a href="#"><img class="card-img-top" src="{{'/book'|add:author.image.url}}" alt="" style="width:250px;height:250px;"></a>
+                    {% else %}
+                    <a href="#"><img class="card-img-top" src="#" alt=""></a>
+
+                  {% endif %}
+                  <div class="card-body">
+                    <h4 class="card-title">
+                      <a href="/author/{{author.id}}">{{ author.author_name }}</a>
+                    </h4>
+                    <h5>Born: {{ author.born_at }}</h5>
+                    <p class="card-text">{{ author.bio|slice:":50" |add:'...'}}</p>
+                  </div>
+                  <div class="card-footer">
+
+
+                  </div>
+                </div>
+              </div>
+
+              {% endfor %}
+
+
+            </div>
+
+
+            {% endblock %}
+
+        </div>
+
+      </div>
 
     </div>
     <!-- /.container -->
+  </div>
