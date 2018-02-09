@@ -37,6 +37,10 @@ class rateList(models.Model):
       )
     rate = models.IntegerField(default=1, choices=Choices)
 
+class categoryList(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    category=models.ForeignKey('books.Category',on_delete=models.CASCADE)
+
 # class recommendedList():
 #     #user_id=
 #     #URecommend=

@@ -9,10 +9,18 @@
     <div class="container-fluid">
       <div class="row">
         {%block sidebar %}
-          <h1 class="my-4">Shop Name</h1>
+          <h1 class="my-4">Categories</h1>
           <div class="list-group">
             {% for  category in  categories %}
-            <a href="#" class="list-group-item">{{category.name}}</a>
+
+            <a href="#"  class="list-group-item">{{category.name}}
+              {% if category.id in favourites %}
+
+                <span cat_id="{{category.id}}" class="fa fa-heart checked"></span>
+                {% else %}
+                <span cat_id="{{category.id}}" class="fa fa-heart"></span>
+              {% endif %}
+            </a>
             {% endfor %}
           </div>
          {% endblock %}
@@ -55,14 +63,16 @@
             <div class="row">
               {% for book in books %}
           <div class="col-lg-4">
+             <a href="{{book.id}}">
             {% if book.image %}
               <img  src="{{'/book'|add:book.image.url}}" alt="Generic placeholder image" width="140" height="140">
 
               {% else %}
-              <img  src="#" alt="Generic placeholder image" width="140" height="140">
+              <img  src="/book/media/defbookcover.jpg" alt="Generic placeholder image" width="140" height="140">
 
             {% endif %}
-                    <h3>  <a href="{{book.id}}">{{ book.title }}</a></h3>
+                    <h3> {{ book.title }}</h3>
+                 </a>
                     <h4>published at: {{ book.published_at }}</h4>
                     <p>
                       {{ book.summary|slice:":50" |add:'...'}}
@@ -72,11 +82,13 @@
                     <span class="fa fa-star checked"></span>
                     <span class="fa fa-star"></span>
                     <span class="fa fa-star"></span> -->
-                    {% for i in "x"|ljust:5 %}
+                    <!-- {% for i in "x"|ljust:5 %}
                           <span class="fa fa-star checked"></span>
-                     {% endfor %}
+                     {% endfor %} -->
                   <p><a class="btn btn-default" href="{{book.id}}" role="button">View details »</a></p>
                   </div>
+                  <p id="book_id" book_id="{{book.id}}" style="display:none">
+
                   {% endfor %}
       </div>
           <!-- /.row -->

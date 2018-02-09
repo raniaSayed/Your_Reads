@@ -13,7 +13,12 @@ from math import ceil
 def index(request):
     books = Book.objects.all()
     categories = Category.objects.all()
-    return render(request,'index.html',{'books':books,'categories':categories,'checked' : range(3),'unchecked':range(2) })
+    favourite_categories =  categoryList.objects.filter(user_id= request.user.id).values_list('category_id',flat=True)
+    # favourite_categories = set(category.id for category in favourite_categories)
+
+    return render(request,'index.html',
+    {'books':books,'categories':categories,
+    'favourites':favourite_categories })
 
 
 def view(request,id):
@@ -31,7 +36,6 @@ def view(request,id):
     {"book":book,"summary":summary,
     'categories':categories,
     'checked' : rate,'unchecked':unchecked});
-    # return HttpResponse(categories[1])
 
 # return books of specific author
 def get_author_books(request,id):
@@ -42,4 +46,9 @@ def get_author_books(request,id):
 def rate_book(request,rate_value,book_id):
     rate = rateList(user_id= request.user.id,book_id = book_id,rate = rate_value )
     rate.save()
-    return JsonResponse(1)
+    return JsonResponse(1,safe=False)
+
+def love_category(request,category_id):
+    category = categoryList(user_id= request.user.id,category_id=category_id)
+    category.save()
+    return JsonResponse(1,safe=False)
