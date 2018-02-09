@@ -24,6 +24,7 @@ def index(request):
 
 
 def view(request,id):
+    request.session['book_id'] = id
     #make a middleware for this function to prevent unexistant ids
     book = Book.objects.get(id=id)
     summary = book.summary
