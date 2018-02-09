@@ -17,36 +17,22 @@
                  <h4 class="card-title">
                    <p>{{ author.author_name }}</p>
                  </h4>
-                 {% if author.born_at %}
-                 <p>Born at: {{ author.born_at }}</p>
-                 {% endif %}
 
-                  {% if author.died_at %}
-                 <p>Died at: {{ author.died_at }}</p>
-                 {% endif %}
-                 <p>Nationality: {{ author.author_nationality }}</p>
-                 <p>Bio: {{ author.bio }}</p>
-
-                 {% for book in books %}
+                 {% for bookk in books %}
                  <div class="col-lg-4 col-md-6 mb-4">
                    <div class="card h-100">
                      {% if book.image %}
-
-                    <img class="card-img-top" src="{{'/book'|add:book.image.url}}" alt="" style="width:250px;height:250px;">
+                       <a href="#"><img class="card-img-top" src="{{'/book'|add:book.image.url}}" alt="" style="width:250px;height:250px;"></a>
                        {% else %}
-                       <img class="card-img-top" src="#" alt="">
+                       <a href="#"><img class="card-img-top" src="#" alt=""></a>
 
                      {% endif %}
                      <div class="card-body">
                        <h4 class="card-title">
-                         <a href="/book/{{book.id}}"> {{ book.title }}</a>
-                         <p class="card-text"> Summary: {{ book.summary|slice:":50" |add:'...'}}</p>
-                         <p>published_at: {{ book.published_at }}</p>
-                         <p>categories: {{ book.categories }}</p>
+                         <p>{{ book.name }}</a>
+                 {% endfor %}
 
 
-                       </h4>
-                  {% endfor %}
                </div>
                <div class="card-footer">
 
