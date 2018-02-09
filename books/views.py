@@ -8,6 +8,7 @@ from authors.models import *
 from users.models import *
 from django.db.models import Avg
 from math import ceil
+from django.views.generic import View
 
 # Create your views here.
 def index(request):
@@ -52,3 +53,22 @@ def love_category(request,category_id):
     category = categoryList(user_id= request.user.id,category_id=category_id)
     category.save()
     return JsonResponse(1,safe=False)
+
+
+
+class User_action(View):
+
+    def get(rself,request):
+        return redirect('books')
+
+    def post(self,request):
+        if request.POST.get('submit') == 'Read':
+            user_read=ReadNowList(user_id= request.user.id,book_id = request.session.get('book_id'))
+            user_read.save()
+        elif request.POST.get('submit') == 'wish':
+                user_read=WishList(user_id= request.user.id,book_id = request.session.get('book_id'))
+                user_read.save()
+        elif request.POST.get('submit') == 'finished':
+                user_read=ReadedList(user_id= request.user.id,book_id = request.session.get('book_id'))
+                user_read.save()
+        return redirect('books')

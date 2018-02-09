@@ -56,6 +56,31 @@
                 <p id="book_id" book_id="{{book.id}}" style="display:none">
 
                 </p>
+
+                <div class="div1_inline">
+         <form class="form" action ="{% url 'read_book' %}" role="form"  method="post" accept-charset="UTF-8" id="login-nav">
+            <div class="form-group">
+              {% csrf_token %}
+         <div class="dropdown">
+              <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Want To
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+               <button value="Read" name='submit' type='submit'
+                class="btn btn-block">Read now</button>
+
+                <button value="wish" name='submit' type='submit'
+                  class="btn btn-block">Wish Read</button>
+                  <button value="finished" name='submit' type='submit'
+                    class="btn btn-block">finished Read</button>
+
+              </ul>
+            </div>
+          </div>
+        </form>
+</div>
+
+
+
             </div>
 
           </div>
