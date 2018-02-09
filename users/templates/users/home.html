@@ -1,0 +1,62 @@
+{% extends 'master.html'%}
+{%block sidebar %}
+<div  class="side">
+    <h2 style="margin-left:80px;"><b><strong>Yours</strong></b></h2>
+    <div class="btn-group" data-toggle="buttons">
+      <button value="current Read" name='submit' type='submit' class="btn btn-block">Current Read</button>
+      <button value="Finished Read" name='submit' type='submit' class="btn btn-block ">Finished Read</button>
+      <button value="Wish List" name='submit' type='submit' class="btn  btn-block">Wish List</button>
+      <button value="Favorite" name='submit' type='submit' class="btn  btn-block">Favorite</button>
+
+</div>
+<div class="post">
+
+ </div>
+
+</div>
+{% endblock %}
+
+{% block main_content %}
+<div class="postCont">
+<h3 style="margin-left:80px;"> <strong>Recent Friends Activity</strong></h3>
+{% for post  in posts  %}
+    <div class="post">
+        <div class="div_inline">
+        <h4 class="name"><b> {{post.split.0}}</b>
+          {{post.split.1}}<br>
+          book :<b>{{post.split.2}}</b>
+        </h4>
+      </div>
+
+       <div class="div_inline">
+         <span> <img src="../static/imges/{{post.split.3}}.jpg" width="70%" height="90%" /></span>
+       </div>
+
+
+       <div class="div1_inline">
+         <form class="form" role="form"  method="post" accept-charset="UTF-8" id="login-nav">
+            <div class="form-group">
+              {% csrf_token %}
+         <div class="dropdown">
+              <button class="btn btn-success dropdown-toggle" type="button" data-toggle="dropdown">Want To
+              <span class="caret"></span></button>
+              <ul class="dropdown-menu">
+               <button value="Read" name='submit' type='submit'
+                class="btn btn-block">Read now</button>
+
+                <button value="wish" name='submit' type='submit'
+                  class="btn btn-block">Wish Read</button>
+                  <button value="wish" name='submit' type='submit'
+                    class="btn btn-block">finished Read</button>
+
+              </ul>
+            </div>
+          </div>
+        </form>
+       </div>
+
+
+      </div>
+{% endfor %}
+</div>
+{% endblock %}

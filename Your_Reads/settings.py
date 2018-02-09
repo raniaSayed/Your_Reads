@@ -51,6 +51,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     # 'books.middleware.viewMiddleware.ViewMiddleware',
+    # 'Webapp.login_required_middleware.LoginRequiredMiddleware',
 ]
 
 ROOT_URLCONF = 'Your_Reads.urls'
@@ -58,7 +59,7 @@ ROOT_URLCONF = 'Your_Reads.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['books/template','template','users/templates'],
+        'DIRS': ['template','books/template'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

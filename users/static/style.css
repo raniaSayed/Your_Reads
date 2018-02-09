@@ -1,12 +1,67 @@
 body{
     background:url('imges/BG.jpg');
 }
-.divv{
-  background:url('imges/bg3.jpg');
-  margin-left: 20px;
-  margin-right: 20px;
-  margin-bottom: 0px;
-  height:490px;
+.postCont{
+  padding: 1px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  border:inset;
+  background-color:black ;
+  border-radius: 10px;
+  border-width: 1px;
+  border-color: black;
+  width: 80%;
+
+}
+.div_inline{
+  display: inline;
+  float:left;
+  width: 35%;
+  margin-left: 3%;
+}
+
+.div1_inline{
+  display: inline;
+  float:left;
+  width: 20%;
+  margin-left: 3%;
+  margin-top: 4%;
+}
+.post{
+  padding: 3px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  border:inset;
+  background-color:white;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: black;
+  height:17%;
+  width: 90%;
+}
+
+.side{
+  width: 100%;
+  height: 100%;
+  border:inset;
+  border-radius: 20px;
+  border-width: 1px;
+  background-color: black;
+}
+.name{
+  padding:.02%;
+
+}
+
+.register_logo{
+  background: url('imges/GRbg.jpg');
+  width:100px;
+  height: 900px;
+  background-color: red;
 }
 strong {
     color: white;

@@ -1,12 +1,18 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.utils.timezone import now
 
 # Create your models here.
 #
 class ReadedList(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     book=models.ForeignKey('books.Book',on_delete=models.CASCADE)
-    published_at = models.DateField()
+    date = models.DateTimeField(auto_now=True)
+
+class ReadNowList(models.Model):
+    user=models.ForeignKey(User,on_delete=models.CASCADE)
+    book=models.ForeignKey('books.Book',on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
 
 
 class RatedList(models.Model):
@@ -17,6 +23,7 @@ class RatedList(models.Model):
 class WishList(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)
     book=models.ForeignKey('books.Book',on_delete=models.CASCADE)
+    date = models.DateTimeField(auto_now=True)
 
 class rateList(models.Model):
     user=models.ForeignKey(User,on_delete=models.CASCADE)

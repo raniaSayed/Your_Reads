@@ -2,32 +2,23 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import ListView, DetailView
-# from .models import Authors
+from .models import Authors
 
 
-# def index(request):
-#     # newAuthor= Authors(author_name="Murakami",nationality="japanese")
-#     # newAuthor.save()
-#     all_authors = Authors.objects.all()
-#     template = loader.get_template('authors/index.html')
-#     context= {
-#     'all_authors': all_authors,
-#     }
-#     return HttpResponse('')
-#
-# def detail(request, author_id):
-#     return HttpResponse("<h2> Details for author:" + str(author_id) + "</h2>")
-#
 
 def index(request):
-    # newAuthor= Authors(author_name="Murakami",nationality="japanese")
-    # newAuthor.save()
     all_authors = Authors.objects.all()
     html=""
+    template_name='authors/index.html'
+    name={}
+    id={}
     for author in all_authors:
+        
         url = '/author/' + str(author.id) + '/'
         html+= '<a href=" '+ url +'  "> '+ author.author_name +' </a> <br> '
-    return HttpResponse(html)
+    return render(request,template_name,{"name":name,"id":id})
+
+    #return HttpResponse(html)
 
 def detail_id(request, author_id):
         try:
@@ -37,7 +28,7 @@ def detail_id(request, author_id):
             return HttpResponse("not exist")
 
 
-def detail_name(request, name):
+def detail_name2(request, name):
     author=Authors.objects.filter(author_name__iexact=name)
     if author:
         html=""
@@ -48,7 +39,7 @@ def detail_name(request, name):
     else:
         return HttpResponse("user isn`t exist ")
 
-def detail_name2(request, name):
+def detail_name(request, name):
     author=Authors.objects.filter(author_name__iexact=name)
     if author:
         html=""
