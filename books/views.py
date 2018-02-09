@@ -4,6 +4,7 @@ from django.http import JsonResponse
 from django.http import HttpResponseRedirect
 from django.shortcuts import render,redirect
 from books.models import *
+from authors.models import *
 
 # Create your views here.
 def index(request):
@@ -20,3 +21,7 @@ def view(request,id):
     #make a middleware for this function to prevent unexistant ids
     return render(request,"single.html",{"book" :Book.objects.get(id=id),'category':""});
     # return HttpResponse(id)
+
+# return books of specific author 
+def get_author_books(request,id):
+    return HttpResponse(Book.objects.filter(author=id))

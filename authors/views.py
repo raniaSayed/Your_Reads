@@ -6,8 +6,6 @@ from .models import Authors
 
 
 def index(request):
-    # newAuthor= Authors(author_name="Murakami",nationality="japanese")
-    # newAuthor.save()
     all_authors = Authors.objects.all()
     template = loader.get_template('authors/index.html')
     context= { #this is the info my template need
