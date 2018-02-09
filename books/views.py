@@ -8,13 +8,9 @@ from authors.models import *
 from users.models import *
 from django.db.models import Avg
 from math import ceil
-<<<<<<< HEAD
 from django.views.generic import View
-=======
-import requests
+# import requests
 from django.views.decorators.csrf import csrf_exempt
-
->>>>>>> 1b50527ebd556c1bcc0fcadc1a8ca224d1c1f746
 
 # Create your views here.
 def index(request):
@@ -27,6 +23,7 @@ def index(request):
 
 
 def view(request,id):
+    request.session['book_id'] = id
     #make a middleware for this function to prevent unexistant ids
     book = Book.objects.get(id=id)
     summary = book.summary
