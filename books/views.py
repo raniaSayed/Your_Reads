@@ -42,11 +42,12 @@ def view(request,id):
 @csrf_exempt
 def search(request):
     #create SearchForm Class
-
-    book_name = request.POST['search_word']
-    books = Book.objects.filter(title__icontains= book_name)
+    name = request.POST['search_word']
+    books = Book.objects.filter(title__icontains= name)
+    authors=Authors.objects.filter(author_name__icontains=name)
+    
     return render(request,'index.html',
-    {'books':books})
+    {'books':books,'authors':authors})
 
 # return books of specific author
 def get_author_books(request,id):
