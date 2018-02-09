@@ -2,15 +2,37 @@
 {%block sidebar %}
 <div  class="side">
     <h2 style="margin-left:80px;"><b><strong>Yours</strong></b></h2>
-    <div class="btn-group" data-toggle="buttons">
-      <button value="current Read" name='submit' type='submit' class="btn btn-block">Current Read</button>
-      <button value="Finished Read" name='submit' type='submit' class="btn btn-block ">Finished Read</button>
-      <button value="Wish List" name='submit' type='submit' class="btn  btn-block">Wish List</button>
-      <button value="Favorite" name='submit' type='submit' class="btn  btn-block">Favorite</button>
+    <div class="div1_inline">
+<form class="form" action ="{% url 'data' %}" role="form"  method="post" accept-charset="UTF-8" id="login-nav">
+<div class="form-group">
+  {% csrf_token %}
+<div class="dropdown">
+  <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"><b>Your Activity</b>
+  <span class="caret"></span></button>
+  <ul class="dropdown-menu">
+   <button value="Read" name='submit' type='submit'
+    class="btn btn-block">Current Read</button>
 
+    <button value="wish" name='submit' type='submit'
+      class="btn btn-block">Wish Read</button>
+      <button value="finished" name='submit' type='submit'
+        class="btn btn-block">finished Read</button>
+
+        <button value="rate" name='submit' type='submit'
+          class="btn btn-block">Your rates</button>
+
+  </ul>
 </div>
-<div class="post">
+</div>
+</form>
+</div>
 
+<div class="postside">
+    <h2><b>{{Msg}}<b></h2>
+    ____________________________
+    {% for book  in bookslist  %}
+      <h3>{{book}}</h3>
+    {% endfor %}
  </div>
 
 </div>

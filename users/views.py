@@ -8,6 +8,7 @@ from django.http import Http404
 from django.contrib.auth.models import User
 from django.views.decorators.http import require_http_methods
 from django.http import HttpResponse
+from users.models import *
 
 class userLogout(View):
     #@login_required
@@ -80,6 +81,44 @@ class UserFormView(View):
                 return redirect('logout')
             else:
                 return render(request,self.template_name,{'registerform':self.registerForm,'loginForm':formlogin,'error':" invalid user name or password "})
+
+
+class UserProfile(View):
+    template_name='users/home.html'
+    def get(self,request):
+         return redirect("logout")
+
+    def post(self,request):
+         data=[]
+         datadesc=""
+         if request.POST.get('submit') == 'Read':
+             datadesc="your current read"
+             res=ReadNowList.objects.filter(user=request.user.id)
+             for item in res:
+                 data.append(item.book)
+
+         elif request.POST.get('submit') == 'wish':
+             datadesc="your wish  read books"
+             res=WishList.objects.filter(user=request.user.id)
+             for item in res:
+                 data.append(item.book)
+
+         elif request.POST.get('submit') == 'finished':
+             datadesc="your finished books"
+             res=ReadedList.objects.filter(user=request.user.id)
+             for item in res:
+                 data.append(item.book)
+
+         elif request.POST.get('submit') == 'rate':
+             datadesc="your rated books"
+             res=rateList.objects.filter(user=request.user.id)
+             for item in res:
+                 data.append(item.book)
+         dict_cont={"posts":{"Martina reading lovestory b1","selvia WishReading thetime  b2",
+         "mariam WishReading thetime  b3","selvia Reading thetime  b6"},'Msg':datadesc,'bookslist':data}
+         return render(request,self.template_name,dict_cont)
+
+
 
 def hell(request):
     template_name='users/base.html'

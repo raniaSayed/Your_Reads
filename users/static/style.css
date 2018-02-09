@@ -52,6 +52,23 @@ body{
   border-width: 1px;
   background-color: black;
 }
+
+.postside{
+  padding: 10px;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-bottom: 2%;
+  margin-top: 2%;
+  border:inset;
+  background-color:white;
+  border-radius: 20px;
+  border-width: 1px;
+  border-color: black;
+  width:90%;
+  height: 70%;
+  overflow: auto;
+}
+
 .name{
   padding:.02%;
 
