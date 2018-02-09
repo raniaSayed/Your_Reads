@@ -8,7 +8,7 @@
 
              <div class="card h-100">
                {% if author.image %}
-                 <img class="card-img-top" src="{{'/author'|add:author.image.url}}" alt="" style="width:200px;height:200px;">
+                 <img class="card-img-top" src="{{'/book'|add:author.image.url}}" alt="" style="width:200px;height:200px;">
                  {% else %}
               <img class="card-img-top" src="#" alt="">
 
@@ -27,38 +27,43 @@
                  <p>Nationality: {{ author.author_nationality }}</p>
                  <p>Bio: {{ author.bio }}</p>
 
-                 {% for book in books %}
-                 <div class="col-lg-4 col-md-6 mb-4">
-                   <div class="card h-100">
-                     {% if book.image %}
+                 <div class="container-fluid">
+                   <div class="row">
+                     <h3>Author Books</h3>
+                     {% for book in books %}
+                 <div class="col-lg-4">
+                    <a href="{{book.id}}">
+                   {% if book.image %}
+                     <img  src="{{'/book'|add:book.image.url}}" alt="Generic placeholder image" width="140" height="140">
 
-                    <img class="card-img-top" src="{{'/book'|add:book.image.url}}" alt="" style="width:250px;height:250px;">
-                       {% else %}
-                       <img class="card-img-top" src="#" alt="">
+                     {% else %}
+                     <img  src="/book/media/defbookcover.jpg" alt="Generic placeholder image" width="140" height="140">
 
-                     {% endif %}
-                     <div class="card-body">
-                       <h4 class="card-title">
-                         <a href="/book/{{book.id}}"> {{ book.title }}</a>
-                         <p class="card-text"> Summary: {{ book.summary|slice:":50" |add:'...'}}</p>
-                         <p>published_at: {{ book.published_at }}</p>
-                         <p>categories: {{ book.categories }}</p>
+                   {% endif %}
+                           <h3> {{ book.title }}</h3>
+                        </a>
+                           <h4>published at: {{ book.published_at }}</h4>
+                           <p>
+                             {{ book.summary|slice:":50" |add:'...'}}
+                           </p>
+                           <!-- <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star checked"></span>
+                           <span class="fa fa-star"></span>
+                           <span class="fa fa-star"></span> -->
+                           <!-- {% for i in "x"|ljust:5 %}
+                                 <span class="fa fa-star checked"></span>
+                            {% endfor %} -->
+                         <p><a class="btn btn-default" href="{{book.id}}" role="button">View details »</a></p>
+                         </div>
+                         <p id="book_id" book_id="{{book.id}}" style="display:none">
 
-
-                       </h4>
-                  {% endfor %}
-               </div>
-               <div class="card-footer">
-
-
-
-
-               </div>
+                         {% endfor %}
              </div>
+                 <!-- /.row -->
 
+               {% endblock %}
+               <!-- main_content -->
 
-
-         {% endblock %}
-
-
-   </div>
+             </div>
+             <!-- /.row -->
