@@ -11,7 +11,11 @@ urlpatterns = [
      re_path(r'^author/(?P<id>[0-9]+)/$',views.get_author_books),
      re_path(r'^rate/(?P<rate_value>[0-5]+)/(?P<book_id>[0-9]+)$',views.rate_book,name="rate_book"),
      re_path(r'^category/(?P<category_id>[0-9]+)$',views.love_category),
+<<<<<<< HEAD
      path('read/',views.User_action.as_view(), name='read_book'),
+=======
+     re_path(r'^search/$',views.search),
+>>>>>>> 1b50527ebd556c1bcc0fcadc1a8ca224d1c1f746
 
 ]
 
