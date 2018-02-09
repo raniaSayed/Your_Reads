@@ -8,13 +8,10 @@ from authors.models import *
 from users.models import *
 from django.db.models import Avg
 from math import ceil
-<<<<<<< HEAD
 from django.views.generic import View
-=======
 import requests
 from django.views.decorators.csrf import csrf_exempt
 
->>>>>>> 1b50527ebd556c1bcc0fcadc1a8ca224d1c1f746
 
 # Create your views here.
 def index(request):
@@ -30,7 +27,7 @@ def view(request,id):
     #make a middleware for this function to prevent unexistant ids
     book = Book.objects.get(id=id)
     summary = book.summary
-    rate = rateList.objects.filter(book_id = id ).aggregate(Avg('rate'))["rate__avg"]
+    rate = RatedList.objects.filter(book_id = id ).aggregate(Avg('rate_val'))["rate_val__avg"]
     if(rate is None):
         rate = 0
 
@@ -48,7 +45,7 @@ def search(request):
     name = request.POST['search_word']
     books = Book.objects.filter(title__icontains= name)
     authors=Authors.objects.filter(author_name__icontains=name)
-    
+
     return render(request,'index.html',
     {'books':books,'authors':authors})
 
@@ -59,7 +56,7 @@ def get_author_books(request,id):
 
 #insert new rate to specific book
 def rate_book(request,rate_value,book_id):
-    rate = rateList(user_id= request.user.id,book_id = book_id,rate = rate_value )
+    rate = RatedList(user_id= request.user.id,book_id = book_id,rate_val = rate_value )
     rate.save()
     return JsonResponse(1,safe=False)
 
