@@ -37,3 +37,12 @@ def rate_book(request,rate_value,book_id):
     rate = rateList(user_id= request.user.id,book_id = book_id,rate = rate_value )
     rate.save()
     return JsonResponse(1)
+#categories
+
+# def get_categories(request,categ_id):
+#     categoris = Category.objects.all()
+#     template = loader.get_template('books/categ.html')
+#     context= { #this is the info my template need
+#     'categoris': categoris,
+#     }
+#     return render(request, 'books/categ.html',context)

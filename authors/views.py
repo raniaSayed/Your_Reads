@@ -3,7 +3,7 @@ from django.http import HttpResponse
 from django.template import loader
 from django.views.generic import ListView, DetailView
 from .models import Authors
-
+from books.models import Book
 
 def index(request):
     all_authors = Authors.objects.all()
@@ -16,10 +16,40 @@ def index(request):
 
 def detail_id(request, author_id):
     author=Authors.objects.get(pk=author_id)
+    books=Book.objects.filter(author=author_id)
     template = loader.get_template('authors/detail.html')
     context= { #this is the info my template need
-    'author': author,}
+    'author': author,
+    'books': books,
+    }
     return render(request, 'authors/detail.html',context)
+
+def detail_name(request, name):
+     authors=Authors.objects.filter(author_name__iexact=name)
+     template = loader.get_template('authors/detailName.html')
+     context= { #this is the info my template need
+     'authors': authors,
+     }
+     return render(request, 'authors/detailName.html',context)
+
+# def detail_name_id(request,name, author_id):
+#     author=Authors.objects.get(pk=author_id)
+#     books=Book.objects.filter(author=author_id)
+#     template = loader.get_template('authors/detail.html')
+#     context= { #this is the info my template need
+#     'author': author,
+#     'books': books,
+#     }
+#     return render(request, 'authors/detail.html',context)
+
+
+# def get_author_books(request,a_id):
+#     books=Book.objects.filter(author=a_id)
+#     author=Authors.objects.get(pk=a_id)
+#     template = loader.get_template('authors/book.html')
+#     context={ 'books': books, 'author': author}
+#     return render(request,'authors/book.html',context)
+    # return HttpResponse("hi")
 
         # return HttpResponse(template.render(context, request))
 
