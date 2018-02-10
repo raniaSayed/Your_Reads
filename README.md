@@ -1,5 +1,5 @@
 # Your_Reads
-Django 2.0.1 Framework Project that simulate <a href="https://www.goodreads.com/">good reads</a> website 
+Django 2.0.1 Framework Project that simulate <a href="https://www.goodreads.com/">good reads</a> website <br><br>
 It's Library Website show newest books and reader 
 can see most recent published books and info about it,<br>
 can see his favourite writers and their books,<br>
@@ -9,7 +9,16 @@ can love category to get most recent books in this category,<br>
 can make books as readed or put them into his wishlist<br>
 <br><br>
 
-<h2><a>Installtion Steps</a></h2>
+<h2><a>Prerequisites Software Installtion</a></h2>
 1- Install Python3<br>
 2- Install Django 2.0.1 Framework<br>
 3- Install SqlClient<br>
+
+<h3>Installtion Instructions</h3>
+ <ul>
+  <li>sudo apt-get install python3 </li>
+  <li>sudo apt-get install -y python3-pip3</li>
+  <li>pip3 install django</li>
+  <li>sudo apt-get install python3.5-dev libmysqlclient-dev</li>
+  <li>sudo pip3 install mysqlclient</li>
+<ul>
