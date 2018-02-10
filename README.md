@@ -9,6 +9,11 @@ can love category to get most recent books in this category,<br>
 can make books as readed or put them into his wishlist<br>
 <br><br>
 
+<h2>Authors</h2>
+<li><a href="https://github.com/raniaSayed"> Rania Sayed </a></li>
+<li><a href="https://github.com/alaahayba"> Alaa Hyba </a></li>
+<li><a href="https://github.com/MennaAnees"> Menna Aness </a></li>
+
 <h2><a>Prerequisites Software Installtion</a></h2>
 1- Install Python3<br>
 2- Install Django 2.0.1 Framework<br>
