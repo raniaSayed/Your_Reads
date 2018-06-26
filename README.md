@@ -28,7 +28,7 @@ type this command
 $ python3 manage.py
 
 <h2>Authors</h2>
-<li><a href="https://github.com/raniaSayed"> Rania Sayed </a></li>
-<li><a href="https://github.com/alaahayba"> Alaa Hyba </a></li>
-<li><a href="https://github.com/MennaAnees"> Menna Aness </a></li>
+<li><a href="https://github.com/raniaSayed" target="_blank"> Rania Sayed </a></li>
+<li><a href="https://github.com/alaahayba"target="_blank"> Alaa Hyba </a></li>
+<li><a href="https://github.com/MennaAnees"target="_blank"> Menna Aness </a></li>
 
