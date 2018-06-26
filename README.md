@@ -9,21 +9,26 @@ can love category to get most recent books in this category,<br>
 can make books as readed or put them into his wishlist<br>
 <br><br>
 
+<h2>Getting Started</h2>
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
+<h2>Prerequisites (Used Technologies) </h2>
+<a href="https://www.python.org/downloads/">Python3</a>
+
+<a href="https://docs.djangoproject.com/en/2.0/">Django 2.0.1 Framework</a>
+
+<a href="http://www.marinamele.com/taskbuster-django-tutorial/install-and-configure-mysql-for-django">SqlClient</a>
+
+<h2>Installation</h2>
+
+<h3>To run App :</h3> 
+
+follow this commands
+
+$ python3 manage.py
+
 <h2>Authors</h2>
 <li><a href="https://github.com/raniaSayed"> Rania Sayed </a></li>
 <li><a href="https://github.com/alaahayba"> Alaa Hyba </a></li>
 <li><a href="https://github.com/MennaAnees"> Menna Aness </a></li>
 
-<h2><a>Prerequisites Software Installtion</a></h2>
-1- Install Python3<br>
-2- Install Django 2.0.1 Framework<br>
-3- Install SqlClient<br>
-
-<h3>Installtion Instructions</h3>
- <ul>
-  <li>sudo apt-get install python3 </li>
-  <li>sudo apt-get install -y python3-pip3</li>
-  <li>pip3 install django</li>
-  <li>sudo apt-get install python3.5-dev libmysqlclient-dev</li>
-  <li>sudo pip3 install mysqlclient</li>
-<ul>
