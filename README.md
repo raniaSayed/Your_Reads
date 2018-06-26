@@ -23,7 +23,7 @@ These instructions will get you a copy of the project up and running on your loc
 
 <h3>To run App :</h3> 
 
-follow this commands
+type this command
 
 $ python3 manage.py
 
